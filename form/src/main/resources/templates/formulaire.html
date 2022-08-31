@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Formulaire</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<h1>App Title</h1>
+    <p>
+        <hr noshade width="300"  align="left">
+    </p>
+    <form action="#" th:action="@{/formulaire}" th:object="${formu}" method="post">
+    	<p>Title <br><input type="text" th:field="*{title}" /></p>
+        <p>Comment <br> <textarea type="text" th:field="*{comment}" /></p>
+        <p><input type="submit" value="Submit" /> </p>
+        </form>
+</body>
+</html>
