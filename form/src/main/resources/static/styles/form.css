@@ -1,0 +1,61 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .feedback-table{
+      width: 80%;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+  
+    .feedback-table th, td{
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      padding: 15px;
+    }
+  
+    .feedback-table th{
+      background-color: rgb(180, 179, 179);
+      color: white;
+    }
+  
+    .input{
+      width: 20%;
+      height: 1.5rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+  
+    .textarea{
+      width: 20%;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+  
+    .button{
+      width: 10%;
+      height: 2rem;
+      background-color: #ff5800;
+      color: white;
+      border-radius: 5px;
+      border-color: #ff5800;
+    }
+  
+    .message{
+      background-color: #f7d2bf;
+      width: 400px;
+      height: 50px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      padding: 10px;
+      color: rgb(110, 110, 110);;
+      font-weight: bold;
+    }
+  
+    .message p{
+      margin: 0 !important;
+    }
+  
+  
+  

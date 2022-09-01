@@ -28,10 +28,4 @@ public class FormController {
 		model.addAttribute("appTitle", appTitle);
 		return "form";
 	}
-
-		
-	
-		  
-	 
-
 }

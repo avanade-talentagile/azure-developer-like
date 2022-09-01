@@ -3,17 +3,17 @@
 <head> 
     <title>Formulaire</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+    <link rel="stylesheet" th:href="@{/styles/form.css}"> 
 </head>
 <body>
-	<h1 th:text="${appTitle}"> </h1>
+	<h1 th:text="${appTitle}" class="app-title"> </h1>
     <p>
-        <hr noshade width="300"  align="left">
+        <hr noshade width="80%"  align="left">
     </p>
     <form action="#" th:action="@{/save}" th:object="${form}" method="post">
-    	<p>Title <br><input type="text" th:field="*{title}" /></p>
-        <p>Comment <br> <textarea type="text" th:field="*{comment}" /></p>
-        <p><input type="submit" value="Submit" /> </p>
-        </form>
+    	<p>Title <br><input type="text" th:field="*{title}" class="input"/></p>
+        <p>Comment <br> <textarea type="text" th:field="*{comment}" class="textarea" rows="10" /></p>
+        <p><input type="submit" value="Submit" class="button" /> </p>
+    </form>
 </body>
 </html>
