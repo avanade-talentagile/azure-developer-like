@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.form.model.Form;
 import com.example.form.model.UserFeedback;
+import com.example.form.repository.UserFeedbackRepository;
 
 @Controller
 public class FormController {
@@ -21,8 +22,8 @@ public class FormController {
 	@Value("${app.title}")
 	private String appTitle;
 
-	// @Autowired
-	// UserFeedbackRepository repository;
+	@Autowired
+	UserFeedbackRepository repository;
 	
 	
 	@GetMapping("/")
@@ -38,6 +39,7 @@ public class FormController {
 		OAuth2User principal = auth.getPrincipal();
 		String userId =  principal.getAttribute("oid");
 		UserFeedback userFeedback = this.map(form, userId);
+		UserFeedback savedFeedback = repository.save(userFeedback);
 		
 		model.addAttribute("form",form);
 		model.addAttribute("appTitle", appTitle);
