@@ -3,7 +3,7 @@ package com.example.form.model;
 import lombok.Data;
 
 @Data
-public class Formulaire {
+public class Form {
 	
 	private String title;
 	private String comment;

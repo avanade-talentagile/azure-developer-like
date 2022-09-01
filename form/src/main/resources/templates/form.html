@@ -6,11 +6,11 @@
 
 </head>
 <body>
-	<h1>App Title</h1>
+	<h1 th:text="${appTitle}"> </h1>
     <p>
         <hr noshade width="300"  align="left">
     </p>
-    <form action="#" th:action="@{/formulaire}" th:object="${formu}" method="post">
+    <form action="#" th:action="@{/save}" th:object="${form}" method="post">
     	<p>Title <br><input type="text" th:field="*{title}" /></p>
         <p>Comment <br> <textarea type="text" th:field="*{comment}" /></p>
         <p><input type="submit" value="Submit" /> </p>
