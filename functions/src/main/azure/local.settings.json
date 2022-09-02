@@ -1,0 +1,16 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "AzureWebJobsStorage": "",
+      "FUNCTIONS_WORKER_RUNTIME": "java",
+      "MAIN_CLASS":"com.example.functions.FunctionsApplication",
+      "AzureWebJobsDashboard": "",
+      "azure.cosmos.uri": "https://af-klm-az-204-cdb.documents.azure.com:443/",
+      "azure.cosmos.key":"Y8EzO2EtACrVOXXCEfQHiwa3NT5skQVUpgrhLS0ByD5mhpvX5XTjyRdcuHMTXvrvLciiCsuFp5tIk46jYH7Rtw==",
+      "azure.cosmos.database":"af-klm-az-204",
+      "azure.cosmos.populateQueryMetrics": "false",
+      "azure.storage.account-name": "afklmaz204sa",
+      "azure.storage.account-key":"90U3VYDqLfD6HK+Tuq5jFeKyaarcfmqoTTjygTaobf+TsmXBcSoTP0UWazIQc7hvki3uLGvrpy49+AStQk83ww==",
+      "azure.storage.blob-endpoint":"http://afklmaz204sa.blob.core.windows.net"
+    }
+  }
