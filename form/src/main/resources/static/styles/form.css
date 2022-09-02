@@ -2,6 +2,11 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.feedback-container{
+  max-height: 40vh; 
+  overflow: auto;
+}
+
 .feedback-table{
     width: 80%;
     border-spacing: 0;
@@ -57,4 +62,8 @@ body{
     margin: 0 !important;
   }
 
+  .image{
+    max-width: 100px;
+    max-height: 100px;
+  }
 

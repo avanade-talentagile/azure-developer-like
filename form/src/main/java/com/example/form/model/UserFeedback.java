@@ -13,6 +13,7 @@ public class UserFeedback {
     private String userId;
     private String title;
     private String comment;
+    private String url;
 
     public UserFeedback() {
     }
@@ -24,10 +25,13 @@ public class UserFeedback {
         this.comment = comment;
     }
 
+    public String getId() {return id; }
     public String getUserId() { return userId; }
     public void setUserId(String userId) { this.userId = userId; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getComment() { return comment; }
     public void setComment(String comment) { this.comment = comment; }
+    public String getUrl() { return url; }
+    public void setUrl(String url) { this.url = url; }
 }

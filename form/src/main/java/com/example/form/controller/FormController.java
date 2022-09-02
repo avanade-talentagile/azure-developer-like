@@ -1,8 +1,5 @@
 package com.example.form.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -12,10 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import com.example.form.model.Form;
 import com.example.form.model.UserFeedback;
 import com.example.form.repository.UserFeedbackRepository;
+import com.example.form.service.FileService;
 
 @Controller
 public class FormController {
@@ -25,6 +24,8 @@ public class FormController {
 
 	@Autowired
 	UserFeedbackRepository repository;
+	@Autowired
+	FileService fileService;
 
 	@GetMapping("/")
 	public String greetingForm(Model model, OAuth2AuthenticationToken auth) {
@@ -39,7 +40,7 @@ public class FormController {
 	}
 
 	@PostMapping("/save")
-	public String saveForm(@ModelAttribute Form form, Model model, OAuth2AuthenticationToken auth) {
+	public String saveForm(@ModelAttribute Form form, @RequestParam("file") MultipartFile file, Model model, OAuth2AuthenticationToken auth) {
 		try {
 
 			OAuth2User principal = auth.getPrincipal();
@@ -47,8 +48,9 @@ public class FormController {
 			model.addAttribute("appTitle", appTitle);
 			model.addAttribute("userName", auth.getName());
 
-			if (form.getTitle() == null || form.getTitle().isEmpty() || form.getComment() == null
-					|| form.getComment().isEmpty()) {
+			if (form.getTitle() == null || form.getTitle().isEmpty() || 
+				form.getComment() == null || form.getComment().isEmpty() ||
+				file.isEmpty()) {
 				model.addAttribute("form", form);
 				model.addAttribute("message", "Invalid form");
 
@@ -61,7 +63,10 @@ public class FormController {
 			}
 
 			UserFeedback userFeedback = this.map(form, userId);
-			UserFeedback savedFeedback = repository.save(userFeedback);
+			String fileUrl = fileService.uploadFile(file, "raw-images", userFeedback.getId());
+			userFeedback.setUrl(fileUrl);
+
+			repository.save(userFeedback);
 			Iterable<UserFeedback> feedbacks = repository.findAll();
 			model.addAttribute("feedbacks", feedbacks);
 		} catch (Exception ex) {
@@ -74,5 +79,4 @@ public class FormController {
 	private UserFeedback map(Form form, String userId) {
 		return new UserFeedback(userId, form.getTitle(), form.getComment());
 	}
-
 }
