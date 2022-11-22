@@ -15,7 +15,8 @@
 			"extensions": [
 				"ms-azuretools.vscode-azurefunctions",
 				"vscjava.vscode-java-pack",
-				"ms-vscode.vscode-node-azure-pack"
+				"ms-vscode.vscode-node-azure-pack",
+				"Pivotal.vscode-boot-dev-pack"
 			]
 		}
 	},
