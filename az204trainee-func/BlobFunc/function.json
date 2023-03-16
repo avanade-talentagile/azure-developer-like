@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "samples-workitems/{name}",
+      "connection": ""
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "direction": "out",
+      "path": "samples-workitems/output/{name}",
+      "connection": ""
+    }
+  ]
+}
